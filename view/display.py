@@ -1,4 +1,4 @@
-class display():
+class Display():
 
 
 
@@ -16,13 +16,13 @@ class display():
         return self._white
     
 
-    def welcome(self,nom_joueur1,nom_joueur2):
+    def welcome(self):
         pass
 
     def imput_player():
         pass
 
-    def imput_play_move(self,nom_joueur):
+    def imput_play_move(self):
         #return imput
         pass
 
