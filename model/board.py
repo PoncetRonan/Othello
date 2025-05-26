@@ -4,11 +4,11 @@ class Board:
         self._score = score
 
     def get_grid(self):
-        pass
+        return self._grid
         
     def get_score(self):
-        pass
-    
+        return self._score
+
     def verify_possible_move(self):
         pass
 
