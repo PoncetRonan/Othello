@@ -25,7 +25,7 @@ class Display():
         self._black=input("Enter the first player's name :  \n")
         self._white=input("Enter the second player's name : \n")
 
-    def imput_play_move(self,list_valid_move):
+    def input_play_move(self,list_valid_move):
         is_valid=False
         next_move=input('Enter your next move')
         if next_move in list_valid_move:
