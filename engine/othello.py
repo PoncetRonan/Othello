@@ -1,3 +1,6 @@
+from model import Board
+from view import Display
+
 class Othello():
     def __init__(self, continue_game=True, current_player="black"):
         self._continue_game = continue_game
@@ -9,6 +12,7 @@ class Othello():
         
         self._num_blocked_players = 0
         self._possible_moves = None
+        self._next_move = None
 
     @property
     def continue_game(self):
@@ -19,10 +23,35 @@ class Othello():
         return self._num_blocked_players
 
     def start_game(self):
-        pass
+        """Initialize a game of othello."""
+
+        # Print welcome message
+        Display.welcome()
+
+        # Initialize board
+        board = Board()
+
 
     def play_game(self):
-        pass
+        """
+        Executes a single turn of the game.
+
+        This method determines the next player, calculates their move,
+        applies the move to the game board, and displays the current game state.
+        """
+
+        # Determine next player
+        self._current_player = self.determine_next_player()
+
+        # Determine the next move
+        self._next_move = self.determine_next_move()
+
+        # Play the move: place pawn and update board
+        self.make_move()
+
+        # Display status
+        self.display_current_state()
+
 
     def determine_next_player(self):
         pass
