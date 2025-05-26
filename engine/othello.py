@@ -43,18 +43,40 @@ class Othello():
         # Determine next player
         self._current_player = self.determine_next_player()
 
-        # Determine the next move
-        self._next_move = self.determine_next_move()
+        if self.num_blocked_players < 2:
+            # Determine the next move
+            self._next_move = self.determine_next_move()
 
-        # Play the move: place pawn and update board
-        self.make_move()
+            # Play the move: place pawn and update board
+            self.make_move()
 
-        # Display status
-        self.display_current_state()
+            # Display status
+            self.display_current_state()
 
 
     def determine_next_player(self):
-        pass
+
+        previous_player = self._current_player 
+        next_player = "unkown"
+
+        while next_player == "unkown" and self.num_blocked_players < 2:
+
+            if previous_player == "white":
+                possible_player = "black"
+            else:
+                possible_player = "white"
+
+            self._possible_moves = Board.verify_possible_move(possible_player) # Returns a list of tuples (row, col)
+
+            if len(self._possible_moves) > 0:
+                self._num_blocked_players = 0
+                next_player = "know"
+            else:
+                previous_player  = possible_player
+                self._num_blocked_players += 1
+        
+        return possible_player
+
 
     def determine_next_move(self):
         pass
