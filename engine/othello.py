@@ -10,13 +10,21 @@ class Othello():
         self._num_blocked_players = 0
         self._possible_moves = None
 
+    @property
+    def continue_game(self):
+        return self._continue_game
+    
+    @property
+    def num_blocked_players(self):
+        return self._num_blocked_players
+
     def start_game(self):
         pass
 
-    def determine_next_player(self):
+    def play_game(self):
         pass
 
-    def play_game(self):
+    def determine_next_player(self):
         pass
 
     def determine_next_move(self):
@@ -26,4 +34,7 @@ class Othello():
         pass
 
     def display_current_state(self):
+        pass
+
+    def end_game(self):
         pass
