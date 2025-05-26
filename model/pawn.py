@@ -12,6 +12,7 @@ class Pawn:
         return self._color
     
     def swap_color(self):
+        """Change the color of the pawn (swap the pawn)"""
         if self.color == 'white':
             self._color= 'black'
         else:

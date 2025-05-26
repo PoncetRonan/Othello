@@ -9,6 +9,7 @@ class Player:
     
     @color.setter
     def set_color(self, color):
+        """A player play a color ('white', 'black') during the actual game play"""
         if color in ['white', 'black']:
             self._color=color
         else:
@@ -19,8 +20,8 @@ class Player:
         return self._name
     
     @name.setter
-    def get_name(self, name):
-        if name in ['Jerome', 'Ronan','Jip', 'Diletta']:
+    def set_name(self, name):
+        if name in ['Jerome', 'Ronan', 'Jip', 'Diletta']:
             self._name
         else:
-            raise ValueError(f" {name} is not a known name in the group")
+            raise ValueError(f"{name} is not a known name of the group")
