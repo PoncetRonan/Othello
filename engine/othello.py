@@ -116,13 +116,13 @@ class Othello():
                 self._num_blocked_players += 1
         
 
-
         return next_player
 
 
     def determine_next_move(self):
         """
-        Determines 
+        Determines the next move to be played.
+
         Returns:
             tuple: (row, col) coordinates of the next pawn to be played
         """
@@ -132,11 +132,18 @@ class Othello():
             return self._player_interface.input_play_move(self._possible_moves) # returns tuple with coordinates
 
     def make_move(self):
-
+        """
+        Apply the next move to the board: place a new pawn and update 
+        the board by turning all appropiate pawns.
+        
+        Returns:
+            Nothing
+        """
         #self._board.play_pawn(self._next_move)
         self._board.play_pawn()
+        self._board.update_board()
+        self._board.calculate_score()
         
-        pass
 
     def display_current_state(self):
         pass
