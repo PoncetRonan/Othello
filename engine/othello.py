@@ -73,8 +73,8 @@ class Othello():
 
         # Initialize board
         self._board = Board()
-        # Add an first visualization of the board!!!!!
-
+        self._player_interface.print_board(self._board._grid)
+        
 
     def play_game(self):
         """
