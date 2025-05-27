@@ -16,6 +16,7 @@ class Othello():
         self._board = None # Store an instance of Board
         self._player_interface = None # Store an instance of Display
         
+        # Test mode!!!
         self.test_mode = True
         self.i = 0 # counter for test runs
         self.test_moves = [[(1, 1)],
@@ -101,17 +102,20 @@ class Othello():
             else:
                 self._possible_moves = Board.verify_possible_move(possible_player) # Returns a list of tuples (row, col)
             
-
-            if len(self._possible_moves) > 0: # possible_player can play and becomles the next_player
+            if len(self._possible_moves) > 0: # possible_player can play and becoms the next_player
                 self._num_blocked_players = 0
                 next_player = possible_player
+                if self.test_mode:
+                    print(f"possible moves {self._possible_moves}")
+                    print(f"previous_player: {previous_player}, next player: {next_player}")
             else: # no moves are possible, try to select the other player
+                if self.test_mode:
+                    print(f"possible moves {self._possible_moves}")
+                    print(f"previous_player: {previous_player}, next player: {next_player}")
                 previous_player = possible_player
                 self._num_blocked_players += 1
         
-            if self.test_mode:
-                print(f"possible moves {self._possible_moves}")
-                print(f"previous_player: {previous_player}, next player: {next_player}")
+
 
         return next_player
 
@@ -129,7 +133,8 @@ class Othello():
 
     def make_move(self):
 
-        self._board.play_pawn(self._next_move)
+        #self._board.play_pawn(self._next_move)
+        self._board.play_pawn()
         
         pass
 
