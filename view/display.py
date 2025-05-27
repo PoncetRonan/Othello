@@ -41,10 +41,33 @@ class Display():
         
 
     def print_board(self,board):
-        pass
+        haut = "  ┌" + "───┬" * 7 + "───┐"
+        milieu = "  ├" + "───┼" * 7 + "───┤"
+        bas = "  └" + "───┴" * 7 + "───┘"
+
+        # En-tête colonnes
+        print("    " + "   ".join(str(i+1) for i in range(8)))
+        print(haut)
+
+        for i, ligne in enumerate(board):
+            ligne_affichée = f"{chr(65 + i)} │"
+            for case in ligne:
+                if case == "N":
+                    ligne_affichée += " ● │"
+                elif case == "B":
+                    ligne_affichée += " ○ │"
+                else:
+                    ligne_affichée += "   │"
+            print(ligne_affichée)
+            if i < 7:
+                print(milieu)
+            else:
+                print(bas)
+            pass
         
 
-    def print_score(self,score):
+    def print_score(self,score_black,score_white):
+        print(f"Score :   {self.black} : {score_black}  :  {self.white} : {score_white}")
         pass
 
     def end_message(self):
