@@ -122,4 +122,31 @@ class Board:
         pass
 
     def calculate_score(self):
-        pass
+        """
+        Calculates and updates the current score for both players.
+
+        Iterates through the game board and counts the number of pawns for each player.
+        For each occupied cell, the pawn's color is checked and the corresponding score 
+        (white or black) is incremented. The results are stored in the instance variables 
+        `_score_white` and `_score_black`.
+
+        Returns:
+            None
+        """
+        
+        score_white = 0
+        score_black = 0
+
+        for row in self._grid: # loop over the rows on the board
+            for case in row:
+                if case.state == "occupied": # if there is a pawn, check the color
+                    color = case.pawn.color
+                    
+                    if color == "white":
+                        score_white += 1
+                    elif color == "black":
+                        score_black += 1
+
+        self._score_white = score_white
+        self._score_black = score_black
+
