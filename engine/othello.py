@@ -2,6 +2,30 @@ from model import Board
 from view import Display
 
 class Othello():
+    """
+    A class representing the Othello (Reversi) game logic.
+
+    This class manages the overall game flow including initializing the game,
+    determining player turns, processing moves, updating the game board, and 
+    handling the game end conditions. It interacts with a Board object (model)
+    and a Display object (view) to separate logic and presentation.
+
+    Attributes:
+        _continue_game (bool): Indicates whether the game should continue or end.
+        _current_player (str): The current player, either "black" or "white".
+        _num_blocked_players (int): Counts how many players have no valid moves.
+        _possible_moves (list): Stores possible moves for the current player as (row, col) tuples.
+        _next_move (tuple): The coordinates of the next move to be made.
+        _board (Board): An instance of the game board.
+        _player_interface (Display): Interface for displaying messages and input.
+        test_mode (bool): If True, uses predefined moves for testing purposes.
+        i (int): Counter to iterate through test moves in test mode.
+        test_moves (list): Predefined moves for testing the game logic.
+
+    Raises:
+        ValueError: If an invalid player is provided during initialization.
+    """
+
     def __init__(self, continue_game=True, current_player="black"):
         self._continue_game = continue_game
 
@@ -41,6 +65,7 @@ class Othello():
         self._player_interface = Display()
 
         # Print welcome message
+        self._player_interface.clear_terminal()
         self._player_interface.welcome()
 
         # Initialize board
@@ -152,8 +177,7 @@ class Othello():
 
         # Get grid and score from _board
         grid = self._board._grid # To be updated with a proper getter!!!
-        score_white, score_black = self._board.score_white, self._board.score_black # to be updated with a proper getter!!!
-
+        score_white, score_black = self._board.score_white, self._board.score_black 
         # Feed the grid and score into _interface
         self._player_interface.print_board(grid)
         self._player_interface.print_score(score_black, score_white)
@@ -165,6 +189,6 @@ class Othello():
         or quit -> updates self._continue_game
         """
 
-        score_white, score_black = self._board.score_white, self._board.score_black # to be updated with a proper getter!!!
+        score_white, score_black = self._board.score_white, self._board.score_black 
         self._continue_game = self._player_interface.end_message(score_black, score_white)
 
