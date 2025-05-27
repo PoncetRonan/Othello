@@ -26,7 +26,7 @@ class Othello():
         ValueError: If an invalid player is provided during initialization.
     """
 
-    def __init__(self, continue_game=True, current_player="black"):
+    def __init__(self, continue_game=True, current_player="white"):
         self._continue_game = continue_game
 
         if current_player in ["white", "black"]:
@@ -41,7 +41,7 @@ class Othello():
         self._player_interface = None # Store an instance of Display
         
         # Test mode!!!
-        self.test_mode = True
+        self.test_mode = False
         self.i = 0 # counter for test runs
         self.test_moves = [[(1, 1)],
                            [(2, 2)],
@@ -127,7 +127,8 @@ class Othello():
                 self._possible_moves = self.test_moves[self.i]
                 self.i += 1
             else:
-                self._possible_moves = Board.verify_possible_move(possible_player) # Returns a list of tuples (row, col)
+                self._possible_moves = self._board.verify_possible_move(possible_player) # Returns a list of tuples (row, col)
+                print(self._possible_moves)
             
             if len(self._possible_moves) > 0: # possible_player can play and becoms the next_player
                 self._num_blocked_players = 0
@@ -165,9 +166,8 @@ class Othello():
         Returns:
             Nothing
         """
-        #self._board.play_pawn(self._next_move)
-        self._board.play_pawn()
-        self._board.update_board()
+        self._board.play_pawn(self._next_move[0], self._next_move[1], self._current_player)
+        self._board.update_board(self._next_move[0], self._next_move[1], self._current_player)
         self._board.calculate_score()
         
 

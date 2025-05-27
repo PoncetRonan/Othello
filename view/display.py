@@ -94,13 +94,20 @@ class Display():
         self._black=input("Enter the first player's name :  \n")
         self._white=input("Enter the second player's name : \n")
 
-    def input_play_move(self,list_valid_move):
+    def input_play_move(self,list_valid_move, current_player):
         is_valid=False
-        next_move=input('Enter your next move')
+        
+        if current_player == "white":
+            name = self.white
+        elif current_player == "black":
+            name = self.black
+
+        print(f"it is the turn of {name}")
+        next_move=input('Enter your next move:')
         if next_move in list_valid_move:
             is_valid=True
         while is_valid == False:
-            next_move=input('Incorrect move , enter a valid move')
+            next_move=input('Incorrect move, please enter a valid move:')
             if next_move in list_valid_move:
                 is_valid=True
         return next_move
