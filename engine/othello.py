@@ -189,7 +189,8 @@ class Othello():
         Displays the winner and asks if the players want to play a next game 
         or quit -> updates self._continue_game
         """
-
+        
+        self._board.calculate_score()
         score_white, score_black = self._board.score_white, self._board.score_black 
         self._continue_game = self._player_interface.end_message(score_black, score_white)
 
