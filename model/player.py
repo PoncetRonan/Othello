@@ -22,6 +22,6 @@ class Player:
     @name.setter
     def set_name(self, name):
         if name in ['Jerome', 'Ronan', 'Jip', 'Diletta']:
-            self._name
+            self._name=name
         else:
             raise ValueError(f"{name} is not a known name of the group")

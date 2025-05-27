@@ -183,3 +183,5 @@ class Board:
         self._score_white = score_white
         self._score_black = score_black
 
+    def __str__(self):
+        return str(self.get_grid())
