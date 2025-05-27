@@ -73,6 +73,7 @@ class Othello():
 
         # Initialize board
         self._board = Board()
+        # Add an first visualization of the board!!!!!
 
 
     def play_game(self):
@@ -191,4 +192,8 @@ class Othello():
 
         score_white, score_black = self._board.score_white, self._board.score_black 
         self._continue_game = self._player_interface.end_message(score_black, score_white)
+
+        # clear terminal 
+        self._player_interface.clear_terminal()
+
 
