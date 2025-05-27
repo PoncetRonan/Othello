@@ -118,8 +118,39 @@ class Board:
         self.calculate_move(row, col, current_player)
         self.calculate_score()
 
-    def calculate_move(self):
-        pass
+    def calculate_move(self,row,col,color):
+        pawn_to_turn=[]
+        for i in [-1,0,1]:
+            for j in [-1,0,1]:
+                if i ==0 and j ==0:
+                    continue
+                try:
+                    self._grid[i+row,j+col].pawn.color
+                except:
+                    continue    
+
+                if (self._grid[i+row,j+col].pawn.color != color):
+                    flag_pawn=False
+                    n=1
+                    while (n*i+row < 8) and (n*j+col < 8) and (n*i+row >-1) and (n*j+col > -1) and flag_pawn==False:
+                        print(self._grid[n*i+row,n*j+col].pawn.color)
+                        try:
+                            self._grid[i+row,j+col].pawn.color
+                        except:
+                            flag_pawn=True
+                            
+
+
+                        if self._grid[n*i+row,n*j+col].pawn.color == color:
+                            
+                            pawn_to_turn.extend((row + m*i, col + m*j) for m in range(1, n))
+                            flag_pawn=True
+                        else:
+
+                            n=n+1
+                else:
+                    pass 
+        return(pawn_to_turn)
 
     def calculate_score(self):
         """
