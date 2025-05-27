@@ -133,7 +133,7 @@ class Othello():
 
     def make_move(self):
         """
-        Apply the next move to the board: place a new pawn and update 
+        Applies the next move to the board: place a new pawn and update 
         the board by turning all appropiate pawns.
         
         Returns:
@@ -147,9 +147,9 @@ class Othello():
 
     def display_current_state(self):
         """
-        Display the board and score in the terminal
+        Displays the board and score in the terminal
         """
-        
+
         # Get grid and score from _board
         grid = self._board._grid # To be updated with a proper getter!!!
         score = self._board._score # to be updated with a proper getter!!!
@@ -160,4 +160,11 @@ class Othello():
 
 
     def end_game(self):
-        pass
+        """
+        Displays the winner and asks if the players want to play a next game 
+        or quit -> updates self._continue_game
+        """
+
+        score = self._board._score # to be updated with a proper getter!!!
+        self._continue_game = self._player_interface.end_message(score)
+
