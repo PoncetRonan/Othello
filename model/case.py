@@ -1,6 +1,6 @@
-from pawn import Pawn
+from .pawn import Pawn
 from typing import List
-from noPawnError import NoPawnError
+from .noPawnError import NoPawnError
 
 class Case:
     """ Case class that compose the boar"""
@@ -8,8 +8,8 @@ class Case:
         self._neighbors={}
         self._state='empty'
         self._pawn=None
-        self.row=row
-        self.column=column
+        self._row=row
+        self._column=column
     
     @property
     def column(self):
@@ -47,4 +47,3 @@ class Case:
             if type(n) != Case:
                 raise ValueError("Neighbors need to be a list of Cases or empty list")
         self._neighbors=neighbors
-    
