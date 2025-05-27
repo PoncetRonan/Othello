@@ -146,7 +146,18 @@ class Othello():
         
 
     def display_current_state(self):
-        pass
+        """
+        Display the board and score in the terminal
+        """
+        
+        # Get grid and score from _board
+        grid = self._board._grid # To be updated with a proper getter!!!
+        score = self._board._score # to be updated with a proper getter!!!
+
+        # Feed the grid and score into _interface
+        self._player_interface.print_board(grid)
+        self._player_interface.print_score(score)
+
 
     def end_game(self):
         pass
