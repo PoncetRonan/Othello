@@ -1,7 +1,44 @@
+import os
+import platform
+
+
 class Display():
+    """
+    Handles all terminal input and output for the Othello game.
 
+    The Display class manages user interactions and visual representations of the game.
+    It collects player names, handles user move inputs, prints the game board and scores,
+    and displays messages including welcome and end-game summaries.
 
+    Attributes:
+        _black (str): Name of the player playing with black pawns.
+        _white (str): Name of the player playing with white pawns.
 
+    Properties:
+        black (str): Returns the black player's name.
+        white (str): Returns the white player's name.
+
+    Methods:
+        welcome():
+            Displays a welcome message and prompts users to enter player names.
+
+        input_player():
+            Prompts users to enter names for black and white players.
+
+        input_play_move(list_valid_move):
+            Asks the current player to input a move, and validates it against a list of legal moves.
+            Returns a valid move as a tuple (row, col).
+
+        print_board(board):
+            Prints a formatted 8x8 Othello game board with Unicode characters.
+
+        print_score(score_black, score_white):
+            Displays the current score of both players.
+
+        end_message(score_black, score_white):
+            Announces the winner or a tie with emoji decorations and prompts whether to play again.
+            Returns True if the user wants to play another game, False otherwise.
+    """
 
     def __init__(self):
             self._black=None
@@ -15,6 +52,13 @@ class Display():
     def black(self):
         return self._black
     
+    def clear_terminal(self):
+        """Clears the terminal screen."""
+        if platform.system() == "Windows":
+            os.system("cls")
+        else:
+            os.system("clear")
+
 
     def welcome(self):
         print('Welcome')

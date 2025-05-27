@@ -65,6 +65,7 @@ class Othello():
         self._player_interface = Display()
 
         # Print welcome message
+        self._player_interface.clear_terminal()
         self._player_interface.welcome()
 
         # Initialize board
