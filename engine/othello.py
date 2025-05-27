@@ -165,9 +165,8 @@ class Othello():
         Returns:
             Nothing
         """
-        #self._board.play_pawn(self._next_move)
-        self._board.play_pawn()
-        self._board.update_board()
+        self._board.play_pawn(self._next_move[0], self._next_move[1], self._current_player)
+        self._board.update_board(self._next_move[0], self._next_move[1], self._current_player)
         self._board.calculate_score()
         
 
