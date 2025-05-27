@@ -19,6 +19,9 @@ class Display():
         white (str): Returns the white player's name.
 
     Methods:
+        clear_terminal():
+            Clears the terminal.
+
         welcome():
             Displays a welcome message and prompts users to enter player names.
 
@@ -61,8 +64,30 @@ class Display():
 
 
     def welcome(self):
-        print('Welcome')
+        """Displays a welcome message and optionally shows the game rules before starting."""
+        print("\n🎮 Welcome to Othello! 🎮")
+        print("A strategic board game where black and white pawns battle for dominance.")
+        print("Let the best player win!\n")
+
+        # Ask if the player wants to see the rules
+        response = input("Would you like to see the game rules? [yes/no]: ").strip().lower()
+        if response in ("yes", "y"):
+            self.show_rules()
+        
+        print("\nLet's set up the game!")
         self.input_player()
+
+    def show_rules(self):
+        """Prints the rules of the game to the terminal."""
+        print("\n📜 Othello Rules:")
+        print("- The game is played on an 8x8 grid.")
+        print("- Players take turns placing their pawns (⚫ or ⚪) on the board.")
+        print("- A move is valid only if it outflanks one or more of the opponent's pawns.")
+        print("- Outflanked pawns are flipped to the current player's color.")
+        print("- You must play a move if you have one; otherwise, you pass.")
+        print("- The game ends when neither player can move.")
+        print("- The player with the most pawns on the board at the end wins.")
+        print("\n🧠 Tip: Corners are powerful. Plan your moves carefully!")
 
 
     def input_player(self):
@@ -80,9 +105,6 @@ class Display():
                 is_valid=True
         return next_move
 
-            
-
-        
 
     def print_board(self,board):
         haut = "  ┌" + "───┬" * 7 + "───┐"
