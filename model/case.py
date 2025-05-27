@@ -49,15 +49,17 @@ class Case:
                 raise ValueError("Neighbors need to be a list of Cases or empty list")
         self._neighbors=neighbors
 
-    def neighbors_coordinates (self)):
+    def neighbors_coordinates (self):
         """Return the list of neighbors coordinate 
         return tuple of coordinates"""
         nc=list()
         # print(f"calculate in ({max(0,self.row-1)},{max(0,self.column-1)}) ({min(8,self.row+1)},{min(8,self.column+1)})")
 
-        for r in range(max(0,self.row-1),min(8+1,self.row+2)):
-            for c in range(max(0,self.column-1),min(8+1,self.column+2)):
+        for r in range(max(0,self.row-1),min(8,self.row+2)):
+            for c in range(max(0,self.column-1),min(8,self.column+2)):
                 if ((c!=self.column) or (r!=self.row)):
                     coordinate=(r,c)
                     nc.append(coordinate)
         return nc
+    
+    
