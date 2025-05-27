@@ -70,5 +70,42 @@ class Display():
         print(f"Score :   {self.black} : {score_black}  :  {self.white} : {score_white}")
         pass
 
-    def end_message(self):
-        pass
+    def end_message(self, score_black, score_white):
+        """
+        Displays the end-of-game message, announces the winner or a tie with emojis,
+        and prompts the user to decide whether to play another game.
+
+        Parameters:
+            score_black (int): Final score for the black player.
+            score_white (int): Final score for the white player.
+
+        Returns:
+            bool: True if the user wants to play another game, False otherwise.
+        """
+        
+        if score_black > score_white:
+            winner = self.black
+            winning_score = score_black
+            emoji = "🏆⚫"
+        elif score_white > score_black:
+            winner = self.white
+            winning_score = score_white
+            emoji = "🏆⚪"
+        else:
+            winner = "No one"
+            winning_score = score_black  # since both are equal
+            emoji = "🤝"
+
+        print("\n🎉 Game Over! 🎉")
+        if winner == "No one":
+            print(f"It's a tie with both players scoring {winning_score}! {emoji}")
+        else:
+            print(f"The winner is {winner} with a score of {winning_score}! {emoji} Congratulations! 🥳")
+
+        response = input("Do you want to play another game [yes/no]: ").strip().lower()
+        if response in ("yes", "y"):
+            play_again = True
+        else:
+            play_again = False
+        
+        return play_again

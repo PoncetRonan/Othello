@@ -152,11 +152,11 @@ class Othello():
 
         # Get grid and score from _board
         grid = self._board._grid # To be updated with a proper getter!!!
-        score = self._board._score # to be updated with a proper getter!!!
+        score_white, score_black = self._board.score_white, self._board.score_black # to be updated with a proper getter!!!
 
         # Feed the grid and score into _interface
         self._player_interface.print_board(grid)
-        self._player_interface.print_score(score)
+        self._player_interface.print_score(score_black, score_white)
 
 
     def end_game(self):
@@ -165,6 +165,6 @@ class Othello():
         or quit -> updates self._continue_game
         """
 
-        score = self._board._score # to be updated with a proper getter!!!
-        self._continue_game = self._player_interface.end_message(score)
+        score_white, score_black = self._board.score_white, self._board.score_black # to be updated with a proper getter!!!
+        self._continue_game = self._player_interface.end_message(score_black, score_white)
 
