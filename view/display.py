@@ -126,9 +126,9 @@ class Display():
             ligne_affichée = f"{chr(65 + i)} │"
             for case in ligne:
                 try:
-                    if case == "N":
+                    if case.pawn.color == "white":
                         ligne_affichée += " ● │"
-                    elif case == "B":
+                    elif case.pawn.color == "black":
                         ligne_affichée += " ○ │"
                 except:
                     ligne_affichée += "   │"
