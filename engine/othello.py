@@ -1,3 +1,6 @@
+from model import Board
+from view import Display
+
 class Othello():
     def __init__(self, continue_game=True, current_player="black"):
         self._continue_game = continue_game
@@ -5,25 +8,163 @@ class Othello():
         if current_player in ["white", "black"]:
             self._current_player = current_player
         else:
-            raise ValueError("Value is not valid. Valid values are: 'white', 'black'")
+            raise ValueError(f"{current_player} is not a valid value. Valid values are: 'white', 'black'")
         
-        self._num_blocked_players = 0
-        self._possible_moves = None
+        self._num_blocked_players = 0 # Count how many players are blocked. If 2 -> end game
+        self._possible_moves = None # Store all possible moves of the next player [(row, col), ...]
+        self._next_move = None # Store the next move (row, col)
+        self._board = None # Store an instance of Board
+        self._player_interface = None # Store an instance of Display
+        
+        # Test mode!!!
+        self.test_mode = True
+        self.i = 0 # counter for test runs
+        self.test_moves = [[(1, 1)],
+                           [(2, 2)],
+                           [],
+                           [(3, 3)],
+                           [],
+                           []]
+
+    @property
+    def continue_game(self):
+        return self._continue_game
+    
+    @property
+    def num_blocked_players(self):
+        return self._num_blocked_players
 
     def start_game(self):
-        pass
+        """Initialize a game of othello."""
+        
+        # Initialize player interface
+        self._player_interface = Display()
 
-    def determine_next_player(self):
-        pass
+        # Print welcome message
+        self._player_interface.welcome()
+
+        # Initialize board
+        self._board = Board()
+
+
+
 
     def play_game(self):
-        pass
+        """
+        Executes a single turn of the game.
+
+        This method determines the next player, calculates their move,
+        applies the move to the game board, and displays the current game state.
+        """
+
+        # Determine next player
+        self._current_player = self.determine_next_player()
+
+        if self.num_blocked_players < 2: # else: game ends
+            # Determine the next move
+            self._next_move = self.determine_next_move()
+
+            # Play the move: place pawn and update board
+            self.make_move()
+
+            # Display status
+            self.display_current_state()
+
+
+    def determine_next_player(self):
+        """
+        Determines which player should take the next turn.
+
+        Alternates between "white" and "black" players and checks for available moves.
+        If a player has no possible moves, they are considered blocked, and the method 
+        attempts to select the other player. The method keeps track of how many players 
+        are blocked and stops when either a player with valid moves is found or 
+        both players are blocked.
+
+        Returns:
+            str: The player ("white" or "black") who will take the next turn.
+        """
+
+        previous_player = self._current_player 
+        next_player = "unkown"
+
+        while next_player == "unkown" and self.num_blocked_players < 2:
+
+            if previous_player == "white":
+                possible_player = "black"
+            else:
+                possible_player = "white"
+
+            # Get a list of all possible moves
+            if self.test_mode:
+                self._possible_moves = self.test_moves[self.i]
+                self.i += 1
+            else:
+                self._possible_moves = Board.verify_possible_move(possible_player) # Returns a list of tuples (row, col)
+            
+            if len(self._possible_moves) > 0: # possible_player can play and becoms the next_player
+                self._num_blocked_players = 0
+                next_player = possible_player
+                if self.test_mode:
+                    print(f"possible moves {self._possible_moves}")
+                    print(f"previous_player: {previous_player}, next player: {next_player}")
+            else: # no moves are possible, try to select the other player
+                if self.test_mode:
+                    print(f"possible moves {self._possible_moves}")
+                    print(f"previous_player: {previous_player}, next player: {next_player}")
+                previous_player = possible_player
+                self._num_blocked_players += 1
+        
+
+        return next_player
+
 
     def determine_next_move(self):
-        pass
+        """
+        Determines the next move to be played.
+
+        Returns:
+            tuple: (row, col) coordinates of the next pawn to be played
+        """
+        if self.test_mode:
+            return (1,1)
+        else:
+            return self._player_interface.input_play_move(self._possible_moves) # returns tuple with coordinates
 
     def make_move(self):
-        pass
+        """
+        Applies the next move to the board: place a new pawn and update 
+        the board by turning all appropiate pawns.
+        
+        Returns:
+            Nothing
+        """
+        #self._board.play_pawn(self._next_move)
+        self._board.play_pawn()
+        self._board.update_board()
+        self._board.calculate_score()
+        
 
     def display_current_state(self):
-        pass
+        """
+        Displays the board and score in the terminal
+        """
+
+        # Get grid and score from _board
+        grid = self._board._grid # To be updated with a proper getter!!!
+        score = self._board._score # to be updated with a proper getter!!!
+
+        # Feed the grid and score into _interface
+        self._player_interface.print_board(grid)
+        self._player_interface.print_score(score)
+
+
+    def end_game(self):
+        """
+        Displays the winner and asks if the players want to play a next game 
+        or quit -> updates self._continue_game
+        """
+
+        score = self._board._score # to be updated with a proper getter!!!
+        self._continue_game = self._player_interface.end_message(score)
+
