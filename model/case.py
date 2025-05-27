@@ -1,5 +1,6 @@
 from pawn import Pawn
 from typing import List
+from noPawnError import NoPawnError
 
 class Case:
     """ Case class that compose the boar"""
@@ -25,8 +26,7 @@ class Case:
     @property
     def pawn(self)->Pawn: 
         if self._state == 'empty':
-            # should raise an exception insteed
-            return None
+            raise NoPawnError("No pawn available")
         else:
             return self._pawn
     

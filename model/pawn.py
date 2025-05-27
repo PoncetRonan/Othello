@@ -17,3 +17,10 @@ class Pawn:
             self._color= 'black'
         else:
             self._color= 'white'
+    
+    def __str__(self):
+        valeur='X'
+        if self.color == 'white':
+            valeur='o'
+        return valeur
+    

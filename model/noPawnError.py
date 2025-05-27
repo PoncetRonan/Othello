@@ -1,0 +1,2 @@
+class NoPawnError(Exception):
+    pass
