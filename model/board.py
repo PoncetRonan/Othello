@@ -13,13 +13,19 @@ class Board:
         self._grid[3, 4].add_pawn(Pawn('black'))
         self._grid[4, 3].add_pawn(Pawn('black'))
         self._grid[4, 4].add_pawn(Pawn('white'))
-        self._score = 0
+        self._score_white = 0
+        self._score_black = 0
 
     def get_grid(self):
         return self._grid
-        
-    def get_score(self):
-        return self._score
+    
+    @property
+    def score_white(self):
+        return self._score_white
+    
+    @property
+    def score_black(self):
+        return self._score_black
 
     def _is_valid_move(self, neighbor, case, current_player):
         result = False
