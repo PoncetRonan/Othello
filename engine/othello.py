@@ -8,11 +8,22 @@ class Othello():
         if current_player in ["white", "black"]:
             self._current_player = current_player
         else:
-            raise ValueError("Value is not valid. Valid values are: 'white', 'black'")
+            raise ValueError(f"{current_player} is not a valid value. Valid values are: 'white', 'black'")
         
-        self._num_blocked_players = 0
-        self._possible_moves = None
-        self._next_move = None
+        self._num_blocked_players = 0 # Count how many players are blocked. If 2 -> end game
+        self._possible_moves = None # Store all possible moves of the next player [(row, col), ...]
+        self._next_move = None # Store the next move (row, col)
+        self._board = None # Store an instance of Board
+        self._player_interface = None # Store an instance of Display
+        
+        self.test_mode = True
+        self.i = 0 # counter for test runs
+        self.test_moves = [[(1, 1)],
+                           [(2, 2)],
+                           [],
+                           [(3, 3)],
+                           [],
+                           []]
 
     @property
     def continue_game(self):
@@ -24,12 +35,17 @@ class Othello():
 
     def start_game(self):
         """Initialize a game of othello."""
+        
+        # Initialize player interface
+        self._player_interface = Display()
 
         # Print welcome message
-        Display.welcome()
+        self._player_interface.welcome()
 
         # Initialize board
-        board = Board()
+        self._board = Board()
+
+
 
 
     def play_game(self):
@@ -43,7 +59,7 @@ class Othello():
         # Determine next player
         self._current_player = self.determine_next_player()
 
-        if self.num_blocked_players < 2:
+        if self.num_blocked_players < 2: # else: game ends
             # Determine the next move
             self._next_move = self.determine_next_move()
 
@@ -78,16 +94,26 @@ class Othello():
             else:
                 possible_player = "white"
 
-            self._possible_moves = Board.verify_possible_move(possible_player) # Returns a list of tuples (row, col)
-
-            if len(self._possible_moves) > 0:
-                self._num_blocked_players = 0
-                next_player = "know"
+            # Get a list of all possible moves
+            if self.test_mode:
+                self._possible_moves = self.test_moves[self.i]
+                self.i += 1
             else:
+                self._possible_moves = Board.verify_possible_move(possible_player) # Returns a list of tuples (row, col)
+            
+
+            if len(self._possible_moves) > 0: # possible_player can play and becomles the next_player
+                self._num_blocked_players = 0
+                next_player = possible_player
+            else: # no moves are possible, try to select the other player
                 previous_player = possible_player
                 self._num_blocked_players += 1
         
-        return possible_player
+            if self.test_mode:
+                print(f"possible moves {self._possible_moves}")
+                print(f"previous_player: {previous_player}, next player: {next_player}")
+
+        return next_player
 
 
     def determine_next_move(self):
@@ -96,10 +122,15 @@ class Othello():
         Returns:
             tuple: (row, col) coordinates of the next pawn to be played
         """
-
-        return Display.input_play_move(self._possible_moves) # returns tuple with coordinates
+        if self.test_mode:
+            return (1,1)
+        else:
+            return self._player_interface.input_play_move(self._possible_moves) # returns tuple with coordinates
 
     def make_move(self):
+
+        self._board.play_pawn(self._next_move)
+        
         pass
 
     def display_current_state(self):
