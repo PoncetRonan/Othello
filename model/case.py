@@ -1,8 +1,9 @@
 from .pawn import Pawn
-from typing import List
 from .noPawnError import NoPawnError
+from typing import List
 
 class Case:
+
     """ Case class that compose the boar"""
     def __init__(self, row, column):
         self._neighbors={}
@@ -47,3 +48,16 @@ class Case:
             if type(n) != Case:
                 raise ValueError("Neighbors need to be a list of Cases or empty list")
         self._neighbors=neighbors
+
+    def neighbors_coordinates (self)):
+        """Return the list of neighbors coordinate 
+        return tuple of coordinates"""
+        nc=list()
+        # print(f"calculate in ({max(0,self.row-1)},{max(0,self.column-1)}) ({min(8,self.row+1)},{min(8,self.column+1)})")
+
+        for r in range(max(0,self.row-1),min(8+1,self.row+2)):
+            for c in range(max(0,self.column-1),min(8+1,self.column+2)):
+                if ((c!=self.column) or (r!=self.row)):
+                    coordinate=(r,c)
+                    nc.append(coordinate)
+        return nc
