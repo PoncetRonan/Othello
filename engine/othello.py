@@ -50,13 +50,16 @@ class Othello():
                            [],
                            []]
 
+
     @property
     def continue_game(self):
         return self._continue_game
     
+
     @property
     def num_blocked_players(self):
         return self._num_blocked_players
+
 
     def start_game(self):
         """Initialize a game of othello."""
@@ -70,8 +73,6 @@ class Othello():
 
         # Initialize board
         self._board = Board()
-
-
 
 
     def play_game(self):
@@ -140,7 +141,6 @@ class Othello():
                 previous_player = possible_player
                 self._num_blocked_players += 1
         
-
         return next_player
 
 
