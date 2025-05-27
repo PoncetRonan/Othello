@@ -118,11 +118,12 @@ class Display():
         for i, ligne in enumerate(board):
             ligne_affichée = f"{chr(65 + i)} │"
             for case in ligne:
-                if case == "N":
-                    ligne_affichée += " ● │"
-                elif case == "B":
-                    ligne_affichée += " ○ │"
-                else:
+                try:
+                    if case == "N":
+                        ligne_affichée += " ● │"
+                    elif case == "B":
+                        ligne_affichée += " ○ │"
+                except:
                     ligne_affichée += "   │"
             print(ligne_affichée)
             if i < 7:
