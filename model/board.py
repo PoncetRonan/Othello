@@ -115,7 +115,9 @@ class Board:
         self._grid[row, col].add_pawn(Pawn(current_player))
 
     def update_board(self, row, col, current_player):
-        self.calculate_move(row, col, current_player)
+        pawn_to_turn = self.calculate_move(row, col, current_player)
+        for (i, j) in pawn_to_turn:
+            self._grid[i, j].pawn.swap_color()
         self.calculate_score()
 
     def calculate_move(self,row,col,color):
@@ -150,7 +152,7 @@ class Board:
                             n=n+1
                 else:
                     pass 
-        return(pawn_to_turn)
+        return pawn_to_turn
 
     def calculate_score(self):
         """
