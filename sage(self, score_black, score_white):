@@ -1,0 +1,580 @@
+[33mcommit 74c8ca6c061ba885b31334a94ef32244a2d707af[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mjip[m[33m)[m
+Merge: d53497b 3ce3824
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 15:15:55 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit 3ce38244c427243507bc538e76dd6c9013350b07[m
+Merge: 6dd14fa 343cdc2
+Author: PoncetRonan <ronan.poncet@le-campus-numerique.fr>
+Date:   Tue May 27 15:19:44 2025 +0200
+
+    Merge pull request #12 from PoncetRonan/ronan
+    
+    correction de print_board et calculate move
+
+[33mcommit 343cdc28a3d7479dc6c61a36da6cd9d2634c3f9d[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Tue May 27 15:12:50 2025 +0200
+
+    correction de print_board et calculate move
+
+[33mcommit d53497b6e7c1febd498e222bc7d8467a8234ed93[m
+Merge: d95f797 1c1f727
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 15:11:05 2025 +0200
+
+    Merge branches 'jip' and 'jip' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit 1c1f7271aad39fe51b8ec9878ce829debd092bd6[m[33m ([m[1;31morigin/jip[m[33m)[m
+Merge: 94a334c 6dd14fa
+Author: Jip Wulffelé <104895034+JipWulffele@users.noreply.github.com>
+Date:   Tue May 27 15:16:52 2025 +0200
+
+    Merge pull request #11 from PoncetRonan/main
+    
+    pull from main
+
+[33mcommit d95f7978f40b301f4881612fd44d77158590d0a1[m
+Merge: d61f7b1 cb53e45
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 15:00:00 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit cb53e451d9d902963aec1006f8acff331eaad641[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Tue May 27 14:48:52 2025 +0200
+
+    correction de print_board pour prendre un element Board
+
+[33mcommit d61f7b16bd9c209ab469d086e852aa025366df0f[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 14:56:36 2025 +0200
+
+    Fix appels to methods in othello
+
+[33mcommit 6dd14fac1cee35f3ab49cdab94e380b53e56d1b2[m[33m ([m[1;32mmain[m[33m)[m
+Merge: 0296629 29f7ed5
+Author: PoncetRonan <ronan.poncet@le-campus-numerique.fr>
+Date:   Tue May 27 13:57:34 2025 +0200
+
+    Merge pull request #10 from PoncetRonan/ronan
+    
+    Ajout de calculate_move return liste de tuple de coordonnées
+
+[33mcommit c8eff200697140b737924f6adc02be83238ecafb[m
+Merge: c55c9bb 6dd14fa
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 13:52:32 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit c55c9bb6b627cc5abc5c2d943a72b5c597f00905[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 13:48:04 2025 +0200
+
+    Add correct input in board. play_pawn and .update board in othello
+
+[33mcommit 29f7ed51ba999e2e08a1ade21996154463a17c23[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Tue May 27 13:44:58 2025 +0200
+
+    Ajout de calculate_move return liste de tuple de coordonnées
+
+[33mcommit 0296629f2a3f167e211ec49b52bc405cd27e4f73[m
+Merge: 7437c29 94a334c
+Author: Jip Wulffelé <104895034+JipWulffele@users.noreply.github.com>
+Date:   Tue May 27 12:43:37 2025 +0200
+
+    Merge pull request #9 from PoncetRonan/jip
+    
+    Jip
+
+[33mcommit 94a334c0efc9e1a0cac6f98d10e7b662b26b777f[m
+Merge: 5ef7deb 7437c29
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 12:36:18 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit 5ef7debc4979e6851959d6f1459104d55df53691[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 12:34:32 2025 +0200
+
+    Add initiall visualization of the board in othello.py
+
+[33mcommit 2c3ce619b888098c71f561384eeaf46c5abc4cbf[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 12:29:06 2025 +0200
+
+    Add small asthetics in othello.py
+
+[33mcommit 7437c29c03fd5fd3c31de0796a49dfed7b661e47[m
+Merge: fe40f73 7a1afac
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Tue May 27 12:23:06 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into diletta
+
+[33mcommit fe40f7360714b6f022a040cedbd21596935facb9[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Tue May 27 12:22:59 2025 +0200
+
+    finished verify_possible_move board.py
+
+[33mcommit 7f9c42350421a41ab68a81a41438afdf6051b380[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 12:21:53 2025 +0200
+
+    Create calculate_score in board.py
+
+[33mcommit f7f3331d224963b302d409b588e1326e69501eef[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 11:58:59 2025 +0200
+
+    Apply small astethic fixes to othello.py
+
+[33mcommit 7a1afac93b6f48fdc88914d8c5139f65d5a1a3f8[m
+Merge: d2fc291 42c1cd1
+Author: Jip Wulffelé <104895034+JipWulffele@users.noreply.github.com>
+Date:   Tue May 27 11:58:30 2025 +0200
+
+    Merge pull request #8 from PoncetRonan/jip
+    
+    Jip
+
+[33mcommit 42c1cd1002f96ccc170d4b7ee1f8d5526f1cb51d[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 11:51:03 2025 +0200
+
+    Update welcome message and add rules in display.py
+
+[33mcommit 1463c00ba05ff0b3447da27ea4944e4a2a19ff9f[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 11:38:16 2025 +0200
+
+    create clear_terminal in display.py and update othello.py
+
+[33mcommit 4ae11a8e3a53da9d5cdfb5259ba3ea6bb8eea626[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 11:16:38 2025 +0200
+
+    Add docstring to Othello class
+
+[33mcommit d2fc291be8fdbe438a3e4ec679ad4c838920b7fb[m
+Merge: b267449 caf67e3
+Author: Jip Wulffelé <104895034+JipWulffele@users.noreply.github.com>
+Date:   Tue May 27 11:16:09 2025 +0200
+
+    Merge pull request #7 from PoncetRonan/jip
+    
+    Jip
+
+[33mcommit caf67e3e67b5695da0ea1592a67b24b11bcad948[m
+Merge: 2617ec5 c5ee653
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 11:09:02 2025 +0200
+
+    Merge branch 'jip' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit 2617ec5908600d718a8a1f905025e03e3a54afed[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 11:07:45 2025 +0200
+
+    Create end of game message in display.py and othello.py
+
+[33mcommit b2674493784b44879c2fdefd9b19ba6bf2a11701[m
+Merge: dc3a834 a3dce87
+Author: J. Delaunay <jerome.delaunay@gmail.com>
+Date:   Tue May 27 11:03:17 2025 +0200
+
+    Merge pull request #6 from PoncetRonan/Jerome
+    
+    Jerome
+
+[33mcommit c5ee6536805551b988b23c08edfd56ab02f46674[m
+Merge: 849966c dc3a834
+Author: Jip Wulffelé <104895034+JipWulffele@users.noreply.github.com>
+Date:   Tue May 27 10:57:53 2025 +0200
+
+    Merge pull request #5 from PoncetRonan/main
+    
+    merge from main
+
+[33mcommit a3dce877f5fc182e4bdfb29bfd9aaed0d74f7126[m
+Author: Jérôme Delaunay <jerome.delaunay@gmail.com>
+Date:   Tue May 27 10:50:17 2025 +0200
+
+    change pawn representation using ⚪ & ⚫
+
+[33mcommit cc16cc8c25a7980ee3d562169e47c4764d6a2d82[m
+Author: Jérôme Delaunay <jerome.delaunay@gmail.com>
+Date:   Tue May 27 10:47:03 2025 +0200
+
+    bord is only 8*8
+
+[33mcommit 75d358df68706f8b38380a8bcf4e92363ee2062b[m
+Author: Jérôme Delaunay <jerome.delaunay@gmail.com>
+Date:   Tue May 27 10:18:47 2025 +0200
+
+    add Case.neighbors_coordinates methode that calculate neighbors coordinae of the current case
+
+[33mcommit dc3a834930fea8572f3c5d7a8983e5ec8e0146b2[m
+Merge: 4534de1 849966c
+Author: Jip Wulffelé <104895034+JipWulffele@users.noreply.github.com>
+Date:   Tue May 27 10:47:05 2025 +0200
+
+    Merge pull request #4 from PoncetRonan/jip
+    
+    Create self.score_white and black with proper getters
+
+[33mcommit 8e147dcb62697d33e300f2f7d9f0284675767fab[m
+Merge: 9390dab dc3a834
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Tue May 27 10:42:48 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into diletta
+
+[33mcommit 9390dab5c99353bd31c691db07a6de8789dabbcb[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Tue May 27 10:42:35 2025 +0200
+
+    add _is_valid_move in board.py
+
+[33mcommit 849966cae9ed0f42078367cc20aae280dd446bb1[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 10:40:02 2025 +0200
+
+    Create self.score_white and black with proper getters
+
+[33mcommit 4534de177ad22f9b423bd2aeb1b64ab1ef752514[m
+Merge: e4b0012 963de48
+Author: Jip Wulffelé <104895034+JipWulffele@users.noreply.github.com>
+Date:   Tue May 27 10:33:34 2025 +0200
+
+    Merge pull request #3 from PoncetRonan/jip
+    
+    Jip - write othello.py
+
+[33mcommit 963de48afc0d176488c20ff5d333086dfb073340[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 10:25:32 2025 +0200
+
+    Create end_game in othello
+
+[33mcommit 41d493904028192ea776375a715ae686e552f046[m
+Merge: 9075247 e4b0012
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 10:14:28 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit e4b0012be2830b37376715539fb2eb3fa4df734b[m
+Merge: c8f2ff4 ea5c2f9
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Tue May 27 10:09:30 2025 +0200
+
+    Merge branch 'diletta'
+
+[33mcommit 9075247419cb4779aab1105d15351574a8f4ddd0[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 10:09:26 2025 +0200
+
+    Create display_current_state in othello
+
+[33mcommit ea5c2f90866f4f1bb029de6330e14343f5964c12[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Tue May 27 10:04:10 2025 +0200
+
+    advances in board.py
+
+[33mcommit 001718b98cbc61d0dfc0ac62ab406cb567962762[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 10:02:12 2025 +0200
+
+    Create make_move in othello
+
+[33mcommit da188ab87cf002435de965976681dc0424b07ebc[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 09:50:29 2025 +0200
+
+    Fix small bugs in test_mode othello
+
+[33mcommit c8f2ff4c8a058a0d3f395757d30647f4f51f9836[m
+Merge: 22051c4 1f7e531
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Tue May 27 09:33:52 2025 +0200
+
+    Merge branch 'ronan'
+
+[33mcommit 5ca907ddb64fb5e3c6bb14ce8a7b16499ea75910[m
+Merge: 1547518 22051c4
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 09:31:57 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit 22051c48f003a14cd2678d50036ef169809e682a[m
+Author: Jérôme Delaunay <jerome.delaunay@gmail.com>
+Date:   Tue May 27 09:31:12 2025 +0200
+
+    change import path & smalls updates on case class
+
+[33mcommit 1f7e531da1edc13f76d0c07a929673b676b4d4ff[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Tue May 27 09:24:41 2025 +0200
+
+    Ajout de board.print_board
+
+[33mcommit c9c9d11f3bb4ec3d84a701e56f321d9ed75bd38e[m
+Author: Jérôme Delaunay <jerome.delaunay@gmail.com>
+Date:   Tue May 27 09:21:05 2025 +0200
+
+    case raise a noPawnException exception when we request the pawn and the case is empty
+
+[33mcommit 15475183e076b85e766939bcd9788045cd7a5a6f[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Tue May 27 09:22:09 2025 +0200
+
+    Create test_mode in othello.py
+
+[33mcommit 5b744af67e838ff716268dc8e1a28fbec5ca1eba[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 16:51:48 2025 +0200
+
+    Start creation deterimine_next_move in othello.py
+
+[33mcommit 92a7ea4618bb7323f090dc379e26d6241f310e3e[m
+Merge: abe5afa a94b4ff
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 16:44:17 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit a94b4ffc98f9a8f26febab07143c61117ca14ef5[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Mon May 26 16:39:59 2025 +0200
+
+    input pas imput
+
+[33mcommit 84cfbbf27ae25423b1f8a3a91315042223bd1de7[m
+Merge: ba0cc5c 81a13cb
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Mon May 26 16:38:22 2025 +0200
+
+    Merge branch 'ronan'
+
+[33mcommit abe5afa733351b4d6561e1f50e4a2ccd8a2b8669[m
+Merge: 6c30155 84cfbbf
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 16:37:57 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit 81a13cb962ddf1902815d73ddaa4c221a05c256e[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Mon May 26 16:34:15 2025 +0200
+
+    modif gitignore + ajout welcome and input in display.py
+
+[33mcommit ba0cc5ca1433ea176bbdf57115642c994431b127[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 16:30:23 2025 +0200
+
+    changes_board
+
+[33mcommit 6c3015570b6555d52f8befc1c676ba5a303c40ff[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 16:26:50 2025 +0200
+
+    Add determine_next_player in othello.py
+
+[33mcommit 27884b5704581a0e1c7628050e2abf984d3055d4[m
+Merge: c5f387d b0ebe6e
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 16:25:44 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit b0ebe6e402868208c20ea73f8b9fe621634a72df[m
+Merge: 21644fb 4c900d0
+Author: Jérôme Delaunay <jerome.delaunay@gmail.com>
+Date:   Mon May 26 16:15:50 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into Jerome
+
+[33mcommit 21644fb8b02b72979c513a3a24b6afa94669e59b[m
+Author: Jérôme Delaunay <jerome.delaunay@gmail.com>
+Date:   Mon May 26 16:06:10 2025 +0200
+
+    small changes on pawn, case, player classes
+
+[33mcommit db626b086888d10be87d71ee8d1a6d57c3fc6f6e[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 15:12:27 2025 +0200
+
+    added_stuffs_gitignore
+
+[33mcommit 76ea891cac8e4e526de5ba523a86feb8e3083f5d[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 15:09:45 2025 +0200
+
+    correct_typo_init_model
+
+[33mcommit be522d0dbe8bf80a91ef581195d8005aa42beaa3[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 15:05:03 2025 +0200
+
+    Create __ni__.py in engine/ and modify main
+
+[33mcommit bf41d8ff8d5df4a865062e3eafb9656c616317fc[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Mon May 26 15:06:52 2025 +0200
+
+    Ajout view/init.py
+
+[33mcommit c5f387d1943442f303cb99463627ddc61aee4d29[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 15:55:42 2025 +0200
+
+    Add play_game method in othello
+
+[33mcommit 4015f012af2da40f94d2c1424c3a9a72b91d61fd[m
+Merge: 8fe1104 4c900d0
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 15:42:00 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello into jip
+
+[33mcommit 8fe1104e827da837417c22e9a2648e1d851e953b[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 15:38:42 2025 +0200
+
+    Add methode start_game to othello.py
+
+[33mcommit 4c900d0c689eef9ecd1c121cb47abb6c116c6e6c[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 15:37:33 2025 +0200
+
+    change_board
+
+[33mcommit 73ae3865bbe44ebedff74f3e8ad981147eca65c9[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 15:37:17 2025 +0200
+
+    typo_init
+
+[33mcommit 44848077655410db6938740480d84a8a67700240[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 15:34:24 2025 +0200
+
+    typo_init
+
+[33mcommit 156b8fc5797ff646c25bc50b7fd21064d8f26c45[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 15:27:17 2025 +0200
+
+    Update main.py
+
+[33mcommit 555253e4ef1e8e1ea6204cdfa3a7a61c1e4b0d08[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 15:12:27 2025 +0200
+
+    added_stuffs_gitignore
+
+[33mcommit e6f811be9480675454c08d19f8ea8467c9a57238[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 15:09:45 2025 +0200
+
+    correct_typo_init_model
+
+[33mcommit e4bbbd836626e2e0d132ba91288273ea2efc5e9d[m
+Merge: dc20f45 a7cded2
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 15:08:00 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello
+
+[33mcommit a7cded2b04f64aa3b95a01ff1a0017133ef6d5e6[m
+Merge: 5e90c07 bfbfd29
+Author: Jip Wulffelé <104895034+JipWulffele@users.noreply.github.com>
+Date:   Mon May 26 15:13:31 2025 +0200
+
+    Merge pull request #1 from PoncetRonan/jip
+    
+    Create __init__.py in engine/ and modify main
+
+[33mcommit dc20f45882a9dd518c7f0e8406426300291f6bcb[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 15:07:52 2025 +0200
+
+    add_init_in_model
+
+[33mcommit 5e90c071917f4b0e6933bbfa3f47cfee42b0e4bb[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Mon May 26 15:06:52 2025 +0200
+
+    Ajout view/init.py
+
+[33mcommit bfbfd29810b57ec7bbc2c74c5c19e368934a261b[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 15:05:03 2025 +0200
+
+    Create __ni__.py in engine/ and modify main
+
+[33mcommit c3921967dbcbe21e43ac951528425efdb44c553c[m
+Author: Jérôme Delaunay <jerome.delaunay@gmail.com>
+Date:   Mon May 26 15:04:26 2025 +0200
+
+    create class for pawn, case, player
+
+[33mcommit 6c2897753847574b0edc8962c3f43f173980a9c8[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Mon May 26 14:50:05 2025 +0200
+
+    ajout squelette display.py
+
+[33mcommit 42cce429ae85df9e502dc9ba0c1db54caeeea7c2[m
+Merge: 0bd05c5 c180f5f
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 14:46:48 2025 +0200
+
+    Merge branch 'main' of github.com:PoncetRonan/Othello
+
+[33mcommit 0bd05c5cbd7b7aadc70f33d7cc963478b3fc2a4d[m
+Author: Diletta Ciardo <dilettaciardo@yahoo.it>
+Date:   Mon May 26 14:41:15 2025 +0200
+
+    board_skeleton
+
+[33mcommit c180f5fa29da312afe9c4cb1d0361647c90bb3cb[m
+Author: Jip Wulffelé <jipwulffele@gmail.com>
+Date:   Mon May 26 14:39:20 2025 +0200
+
+    Create skelet othello.py
+
+[33mcommit eca9f6d99290755a6c563912a97cdc29ac1f3e12[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Mon May 26 13:52:35 2025 +0200
+
+    ajout main et .gitignore
+
+[33mcommit 143c2a99cf2d136cbaea225193e1de592c204b6e[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Mon May 26 12:36:59 2025 +0200
+
+    Ajout de model/case.py
+
+[33mcommit ccde4a79ce1ea469cc18c91b308f3a16ab7d58aa[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Mon May 26 12:34:48 2025 +0200
+
+    Ajout des fichiers vides
+
+[33mcommit 6d172fa9d77da6009edbda49af77b2b39f895936[m
+Author: Ronan <ronan.poncet@le-campus-numerique.fr>
+Date:   Fri May 23 16:22:23 2025 +0200
+
+    ajout du readme
