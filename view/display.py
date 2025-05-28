@@ -1,6 +1,11 @@
 import os
 import platform
 from .coordinates import Coordinates
+from rich.table import Table
+from rich.console import Console
+from rich.box import SQUARE
+from rich.style import Style
+from rich.text import Text
 
 
 class Display():
@@ -43,10 +48,50 @@ class Display():
             Announces the winner or a tie with emoji decorations and prompts whether to play again.
             Returns True if the user wants to play another game, False otherwise.
     """
+    liste_pions = ["⚪", "⚫", "🔴", "🔵", "🐱", "🐶", "🦄", "🐉"]
 
     def __init__(self):
             self._black=None
             self._white=None
+            self._black_pawn=None
+            self._white_pawn=None
+            self._liste_pions = [
+    # ⚪ Couleurs / pions classiques
+    "⚪", "⚫", "🔴", "🔵", "🟢", "🟡", "🟤", "🟣", "🟠",
+
+    # 🔥 Objets / éléments
+    "🧊", "🔥", "💣", "💎", "🪙", "🎯", "🎲", "🧲", "⚙️", "🔮",
+
+    # 🐾 Animaux / créatures
+    "🐱", "🐶", "🐸", "🐧", "🐵", "🐢", "🐉", "🦄",
+
+    # ✨ Symboles / fantasy
+    "👑", "🛡️", "🗡️"
+]
+
+
+    @property
+    def liste_pions(self):
+        return self._liste_pions
+    @liste_pions.setter
+    def liste_pions(self, new_list):
+        self._liste_pions = new_list
+    @property
+    def black_pawn(self):
+        return self._black_pawn
+    
+    @property
+    def white_pawn(self):
+        return self._white_pawn
+    
+    @black_pawn.setter
+    def black_pawn(self, pawn):
+        self._black_pawn = pawn
+
+    @white_pawn.setter
+    def white_pawn(self, pawn):
+        self._white_pawn = pawn
+    
             
     @property
     def white(self):
@@ -57,7 +102,8 @@ class Display():
         return self._black
     
     def clear_terminal(self):
-        """Clears the terminal screen."""
+        """Clears the terminal screen.
+        BLAME JIP"""
         if platform.system() == "Windows":
             os.system("cls")
         else:
@@ -93,7 +139,9 @@ class Display():
 
     def input_player(self):
         self._black=input("Enter the first player's name :  \n")
+        self.black_pawn=self.choose_pawn()
         self._white=input("Enter the second player's name : \n")
+        self.white_pawn=self.choose_pawn()
 
     def input_play_move(self,list_valid_move, current_player):
         """
@@ -133,48 +181,46 @@ class Display():
         return absolute_coord
 
 
+
+
     def print_board(self, board, possible_moves):
-        """
-        Prints the current state of the Othello game board in a formatted manner.
-        Parameters:                                                                                                                                                 
-            board (list): A 2D list representing the game board, where each cell can contain a pawn or be empty.
-            possible_moves (list): A list of tuples representing valid moves for the current player.
-        Returns:
-            None
-        """
-        GREEN = "\033[92m"
-        BLUE = "\033[94m"
-        RESET = "\033[0m"
-        haut = "  ┌" + "───┬" * 7 + "───┐"
-        milieu = "  ├" + "───┼" * 7 + "───┤"
-        bas = "  └" + "───┴" * 7 + "───┘"
-
-        # En-tête colonnes
-        print(f"{BLUE}    " + "   ".join(chr(65 + i) for i in range(8)) + f"{RESET}")
-        print(haut)
-
-            # Couleurs ANSI
-
-        for i, ligne in enumerate(board):
-            ligne_affichée = f"{BLUE}{i+1}{RESET} │"
-            for j,case in enumerate(ligne):
-                if (i,j) in possible_moves:
-                    ligne_affichée += f" {GREEN}✶{RESET} │"
-                else:
-                    try:
-                        if case.pawn.color == "white":
-                            ligne_affichée += " ● │"
-                        elif case.pawn.color == "black":
-                            ligne_affichée += " ○ │"
-                    except:
-                        ligne_affichée += "   │"
-            print(ligne_affichée)
-            if i < 7:
-                print(milieu)
-            else:
-                print(bas)
-            pass
+        console = Console()
         
+        table = Table(
+            title="Othello",
+            show_header=True,
+            show_lines=True,
+            box=SQUARE,  # Style de boîte carrée
+            # Ajoutez ces paramètres pour contrôler l'apparence des cellules
+            padding=0,    # Réduit l'espacement interne
+            pad_edge=False, # Désactive le padding des bords
+            collapse_padding=True # Fusionne les espacements
+        )
+        
+        # Ajoutez une colonne pour les numéros de ligne
+        table.add_column("", style="bold blue", width=3, no_wrap=True, justify="center")
+        
+        # Ajoutez les colonnes (A-H)
+        for letter in [chr(65+i) for i in range(8)]:
+            table.add_column(letter, width=3, no_wrap=True, justify="center")
+        
+        # Ajoutez les lignes
+        for i in range(8):
+            row = [str(i + 1)]
+            for j in range(8):
+                try:
+                    if (i, j) in possible_moves:
+                        row.append("[green]★[/green]")
+                    elif board[i][j].pawn.color == 'white':
+                        row.append(f"{self.white_pawn}")
+                    elif board[i][j].pawn.color == 'black':
+                        row.append(f"{self.black_pawn}")
+                except:
+                    row.append(" ")
+            table.add_row(*row)
+        
+        console.print(table)
+            
 
     def print_score(self,score_black,score_white):
         """
@@ -186,7 +232,7 @@ class Display():
             None
         """
         print(f"Score :   {self.black} : {score_black}  :  {self.white} : {score_white}")
-        pass
+        
 
     def end_message(self, score_black, score_white):
         """
@@ -227,3 +273,25 @@ class Display():
             play_again = False
         
         return play_again
+    
+    def choose_pawn(self):
+        pions=self.liste_pions
+        pawn_valid=False
+        strinput="Choisis ton pion :"
+        while pawn_valid == False:
+            print(strinput)
+            try:
+                for i, pion in enumerate(pions):
+                    print(f"{i + 1}. {pion}")
+
+                choix = int(input("Numéro du pion choisi : ")) - 1
+
+                if 0 <= choix < len(pions):
+                    print(f"Tu as choisi : {pions[choix]}")
+                    pawn_valid=True
+                else:
+                    strinput= "Choix invalide."
+            except:
+                strinput='Veuillez indiquer un numéro de pion valide.'
+        self.liste_pions = [p for p in self.liste_pions if p != pions[choix]]
+        return pions[choix]
