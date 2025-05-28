@@ -103,7 +103,7 @@ class Display():
         elif current_player == "black":
             name = self.black
 
-        print(f"it is the turn of {name}")
+        print(f"It is your turn: {name} (you're playing '{current_player}')")
         input_msg='Enter your next move: \n'
 
         is_valid=False

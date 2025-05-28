@@ -114,6 +114,8 @@ class Othello():
 
             # Get a list of all possible moves
             self._possible_moves = self._board.verify_possible_move(possible_player) # Returns a list of tuples (row, col)
+            self._possible_moves = [(1,1)]
+            
             print(self._possible_moves)
         
             if len(self._possible_moves) > 0: # possible_player can play and becoms the next_player
@@ -134,7 +136,7 @@ class Othello():
             tuple: (row, col) coordinates of the next pawn to be played
         """
 
-        return self._player_interface.input_play_move(self._possible_moves) # returns tuple with coordinates
+        return self._player_interface.input_play_move(self._possible_moves, self._current_player) # returns tuple with coordinates
 
     def make_move(self):
         """
@@ -158,7 +160,7 @@ class Othello():
         grid = self._board._grid # To be updated with a proper getter!!!
         score_white, score_black = self._board.score_white, self._board.score_black 
         # Feed the grid and score into _interface
-        self._player_interface.print_board(grid)
+        self._player_interface.print_board(grid, self._possible_moves)
         self._player_interface.print_score(score_black, score_white)
 
 
