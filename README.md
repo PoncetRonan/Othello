@@ -40,11 +40,13 @@ Othello is a classic strategy board game where two players take turns placing di
   │ ├── pawn.py # Pawn class: black/white disc logic 
   │ ├── player.py # Player class: player states 
   │ └── noPawnError.py # Custom error for missing pawns 
-  │ ├── view/ 
+  │ 
+  ├── view/ 
   │ ├── __init__.py 
   │ ├── coordinates.py # Coordinate helper/conversion 
   │ └── display.py # Display logic (print board, status) 
-  │ ├── main.py # Game entry point 
+  │ 
+  ├── main.py # Game entry point 
   ├── .gitignore # Git ignored files 
   └── README.md # Project documentation 
   ``` </pre>
@@ -52,9 +54,12 @@ Othello is a classic strategy board game where two players take turns placing di
 ---
 
 ## 🛠️ Setup
+
+<pre lang="markdown"> 
 git clone https://github.com/your-username/othello.git
 cd othello
 python main.py
+</pre>
 
 ---
 
