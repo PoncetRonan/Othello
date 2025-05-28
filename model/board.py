@@ -135,7 +135,7 @@ class Board:
                     flag_pawn=False
                     n=1
                     while (n*i+row < 8) and (n*j+col < 8) and (n*i+row >-1) and (n*j+col > -1) and flag_pawn==False:
-                        print(self._grid[n*i+row,n*j+col].pawn.color)
+                        
                         try:
                             self._grid[i+row,j+col].pawn.color
                         except:
