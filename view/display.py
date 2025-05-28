@@ -1,6 +1,7 @@
 import os
 import platform
 from .coordinates import Coordinates
+from model import Player
 
 
 class Display():
@@ -47,14 +48,17 @@ class Display():
     def __init__(self):
             self._black=None
             self._white=None
+            self._blackPlayer = Player("",color="black")
+            self._whitePlayer = Player("")
+
             
     @property
-    def white(self):
-        return self._white
+    def white(self)->Player:
+        return self._whitePlayer
     
     @property
-    def black(self):
-        return self._black
+    def black(self)->Player:
+        return self._blackPlayer
     
     def clear_terminal(self):
         """Clears the terminal screen."""
@@ -76,7 +80,9 @@ class Display():
             self.show_rules()
         
         print("\nLet's set up the game!")
-        self.input_player()
+
+    def get_player_name(self, player:Player):
+        return self.input_player(player)
 
     def show_rules(self):
         """Prints the rules of the game to the terminal."""
@@ -91,11 +97,18 @@ class Display():
         print("\n🧠 Tip: Corners are powerful. Plan your moves carefully!")
 
 
-    def input_player(self):
-        self._black=input("Enter the first player's name :  \n")
-        self._white=input("Enter the second player's name : \n")
+    def play_against_IA(self):
+        rep=input("Do you want to play against an IA [yes/no]:\n")
+        if rep== "yes":
+            return True
+        else:
+            return False
+    
+    def input_player(self, player:Player):
+        player.name=input(f"Enter the first player's name for {player.color} :  \n")
+        return player       
 
-    def input_play_move(self,list_valid_move, current_player):
+    def input_play_move(self,list_valid_move, current_player:Player):
         """
         Prompts the current player to input their next move and validates it against a list of legal moves.
         Parameters:
@@ -106,13 +119,8 @@ class Display():
         """
 
         is_valid=False
-        
-        if current_player == "white":
-            name = self.white
-        elif current_player == "black":
-            name = self.black
 
-        print(f"It is your turn: {name} (you're playing '{current_player}')")
+        print(f"It is your turn: {current_player.name} (you're playing '{current_player.color}')")
         input_msg='Enter your next move: \n'
 
         is_valid=False
@@ -176,7 +184,7 @@ class Display():
             pass
         
 
-    def print_score(self,score_black,score_white):
+    def print_score(self, players, score_black, score_white):
         """
         Prints the current score of both players in a formatted manner.
         Parameters:
@@ -185,7 +193,7 @@ class Display():
         Returns:
             None
         """
-        print(f"Score :   {self.black} : {score_black}  :  {self.white} : {score_white}")
+        print(f"Score :   {players["black"]} : {score_black}  :  {players["white"]} : {score_white}")
         pass
 
     def end_message(self, score_black, score_white):
