@@ -33,8 +33,8 @@ class Board:
         """
         Determines the direction of the case relative to the move.
         Args:
-            move (tuple): Coordinates of the move (row, col).
             case (tuple): Coordinates of the case (row, col).
+            move (tuple): Coordinates of the move (row, col).
         Returns:
             str: Direction of the move ('up', 'down', 'left', 'right', 'up-left', 'up-right', 'down-left', 'down-right').
         """
@@ -97,7 +97,7 @@ class Board:
             if self._grid[i, j].pawn.color == color:
                 result = True
                 break
-            valid, (i, j) = self.increment_direction(i, j, direction)
+            valid, (i, j) = self.increment_direction((i, j), direction)
         return result
 
     def verify_possible_move(self, current_player):
@@ -105,9 +105,8 @@ class Board:
         for i in range(8):
             for j in range(8):
                 if ((self._grid[i, j].state == 'occupied') and (self._grid[i, j].pawn.color != current_player)):
-                    for k,l in self._grid[i, j].neighbors_coordinates():
-                        
-                        direction = self.define_direction((k,l), (i,j))
+                    for k,l in self._grid[i, j].neighbors_coordinates():                        
+                        direction = self.define_direction((i,j), (k,l))
                         if ((self._grid[k,l].state == 'empty') and (self.is_valid_move((k,l), direction, current_player))):
                             possible_moves.append((k,l))
         return list(set(possible_moves))  # Remove duplicates
