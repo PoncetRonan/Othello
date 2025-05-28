@@ -137,14 +137,17 @@ class Display():
 
         for i, ligne in enumerate(board):
             ligne_affichée = f"{str(i+1)} │"
-            for case in ligne:
-                try:
-                    if case.pawn.color == "white":
-                        ligne_affichée += " ● │"
-                    elif case.pawn.color == "black":
-                        ligne_affichée += " ○ │"
-                except:
-                    ligne_affichée += "   │"
+            for j,case in enumerate(ligne):
+                if (i,j) in possible_moves:
+                    ligne_affichée += " ✶ │"
+                else:
+                    try:
+                        if case.pawn.color == "white":
+                            ligne_affichée += " ● │"
+                        elif case.pawn.color == "black":
+                            ligne_affichée += " ○ │"
+                    except:
+                        ligne_affichée += "   │"
             print(ligne_affichée)
             if i < 7:
                 print(milieu)
