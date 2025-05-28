@@ -48,11 +48,20 @@ class Othello():
         return self._num_blocked_players
 
 
+    def reinitialize_game(self):
+        self._current_player = "white"
+        self._num_blocked_players = 0
+
+
     def start_game(self):
         """Initialize a game of othello."""
         
+        # reset num_blocked players and current player
+        self.reinitialize_game()
+
         # Initialize player interface
         self._player_interface = Display()
+    
 
         # Print welcome message
         self._player_interface.clear_terminal()
