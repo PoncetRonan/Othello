@@ -96,6 +96,15 @@ class Display():
         self._white=input("Enter the second player's name : \n")
 
     def input_play_move(self,list_valid_move, current_player):
+        """
+        Prompts the current player to input their next move and validates it against a list of legal moves.
+        Parameters:
+            list_valid_move (list): A list of valid moves represented as tuples (row, col).
+            current_player (str): The color of the current player ("white" or "black").
+        Returns:
+            tuple: A valid move as a tuple (row, col) if the input is valid.
+        """
+
         is_valid=False
         
         if current_player == "white":
@@ -125,19 +134,32 @@ class Display():
 
 
     def print_board(self, board, possible_moves):
+        """
+        Prints the current state of the Othello game board in a formatted manner.
+        Parameters:                                                                                                                                                 
+            board (list): A 2D list representing the game board, where each cell can contain a pawn or be empty.
+            possible_moves (list): A list of tuples representing valid moves for the current player.
+        Returns:
+            None
+        """
+        GREEN = "\033[92m"
+        BLUE = "\033[94m"
+        RESET = "\033[0m"
         haut = "  ┌" + "───┬" * 7 + "───┐"
         milieu = "  ├" + "───┼" * 7 + "───┤"
         bas = "  └" + "───┴" * 7 + "───┘"
 
         # En-tête colonnes
-        print("    " + "   ".join(chr(65 + i) for i in range(8)))
+        print(f"{BLUE}    " + "   ".join(chr(65 + i) for i in range(8)) + f"{RESET}")
         print(haut)
 
+            # Couleurs ANSI
+
         for i, ligne in enumerate(board):
-            ligne_affichée = f"{str(i+1)} │"
+            ligne_affichée = f"{BLUE}{i+1}{RESET} │"
             for j,case in enumerate(ligne):
                 if (i,j) in possible_moves:
-                    ligne_affichée += " ✶ │"
+                    ligne_affichée += f" {GREEN}✶{RESET} │"
                 else:
                     try:
                         if case.pawn.color == "white":
@@ -155,6 +177,14 @@ class Display():
         
 
     def print_score(self,score_black,score_white):
+        """
+        Prints the current score of both players in a formatted manner.
+        Parameters:
+            score_black (int): Current score for the black player.
+            score_white (int): Current score for the white player.
+        Returns:
+            None
+        """
         print(f"Score :   {self.black} : {score_black}  :  {self.white} : {score_white}")
         pass
 
