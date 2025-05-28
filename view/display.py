@@ -118,8 +118,6 @@ class Display():
                     input_msg=("You can't put a pawn there , enter a new move : \n")
                 
             except:
-                alphan_coordinate=Coordinates(next_move)
-                print((alphan_coordinate.row_index,alphan_coordinate.col_index))
                 input_msg=("Can't recognize this move , enter a new move : \n")
 
 
