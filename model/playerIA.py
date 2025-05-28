@@ -5,7 +5,7 @@ import copy
 
 class PlayerIA(Player):
     """ player IA that calculate the next move by itself"""
-    def __init__(self, name, color='white', mode_play = "random"):
+    def __init__(self, name, color='white', mode_play = "minmax"):
         super().__init__(name, color)
         self.mode_play = mode_play
 
@@ -46,7 +46,7 @@ class PlayerIA(Player):
                 return board._score_black - board._score_white          
         if is_maximizing:
             best_score = float("-inf")
-            for move in board.verify_possible_move():
+            for move in board.verify_possible_move(self.color):
                 # Create a deep copy of the board to simulate the move
                 # This is necessary to avoid modifying the original board
                 # as we do not have a method to reset the board
@@ -64,7 +64,11 @@ class PlayerIA(Player):
         else:
             # if it is the minimizing player's turn (human), we want to minimize the score
             best_score = float("inf")
-            for move in board.verify_possible_move():
+            if self.color == "white":
+                opponent_color = "black"
+            else:
+                opponent_color = "white"
+            for move in board.verify_possible_move(opponent_color):
                 # Create a deep copy of the board to simulate the move
                 # This is necessary to avoid modifying the original board
                 # as we do not have a method to reset the board
@@ -76,8 +80,6 @@ class PlayerIA(Player):
                 # Recursively call minimax with the next depth and the minimizing player
                 # is_maximizing=False because at next move we will check the best movement for IA
                 score = self.minimax(board_ia, current_depth + 1, target_depth, True)
-                # Reset the move
-                self.board[move] = " "
                 # Update the best score
                 best_score = min(score, best_score)
             return best_score
