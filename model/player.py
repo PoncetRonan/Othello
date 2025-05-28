@@ -1,11 +1,23 @@
 class Player:
-    def __init__(self,name, color='white'):
+    def __init__(self,name, color='white', type='human'):
         self.color=color
         self.name=name
+        self.type=type
+    @property
+    def type(self):
+        return self._type
+    
+    @type.setter
+    def set_type(self, type):
+        """A player can be humain or ia"""
+        if type in ['human', 'ia']:
+            self._type=type
+        else:
+            raise ValueError(f"type {type} is not a valide value can be 'humain' or 'ia'")
     
     @property
     def color(self):
-        return self.color
+        return self._color
     
     @color.setter
     def set_color(self, color):
@@ -21,7 +33,4 @@ class Player:
     
     @name.setter
     def set_name(self, name):
-        if name in ['Jerome', 'Ronan', 'Jip', 'Diletta']:
-            self._name=name
-        else:
-            raise ValueError(f"{name} is not a known name of the group")
+        self._name=name
