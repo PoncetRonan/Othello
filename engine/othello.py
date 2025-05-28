@@ -1,4 +1,4 @@
-from model import Board
+from model import Board, Player, PlayerIA, Color
 from view import Display
 
 class Othello():
@@ -25,6 +25,9 @@ class Othello():
 
     def __init__(self, continue_game=True, current_player="white"):
         self._continue_game = continue_game
+        self.players={"white":None, "black":None}
+                    #   Player("", color="white"),"black":Player("",color='black')}
+
 
         if current_player in ["white", "black"]:
             self._current_player = current_player
@@ -36,17 +39,22 @@ class Othello():
         self._next_move = None # Store the next move (row, col)
         self._board = None # Store an instance of Board
         self._player_interface = None # Store an instance of Display
-
+    
+    @property
+    def players(self):
+        return self._players
+    
+    @players.setter
+    def players(self, players):
+        self._players=players
 
     @property
     def continue_game(self):
         return self._continue_game
     
-
     @property
     def num_blocked_players(self):
         return self._num_blocked_players
-
 
     def reinitialize_game(self):
         self._current_player = "white"
@@ -65,7 +73,16 @@ class Othello():
 
         # Print welcome message
         self._player_interface.clear_terminal()
+
         self._player_interface.welcome()
+        if self._player_interface.play_against_IA():
+            self.players={"white":Player("not def", color="white"),"black":PlayerIA("IA",color='black')}
+            # self.players["white"]=
+            self._player_interface.get_player_name(self.players["white"])
+        else:
+            self.players={"white":Player("not def", color="white"),"black":Player("Not def2",color='black')}
+            self._player_interface.get_player_name(self.players["white"])
+            self._player_interface.get_player_name(self.players["black"])
 
         # Initialize board
         self._board = Board()
@@ -139,8 +156,11 @@ class Othello():
         Returns:
             tuple: (row, col) coordinates of the next pawn to be played
         """
-
-        return self._player_interface.input_play_move(self._possible_moves, self._current_player) # returns tuple with coordinates
+        player= self.players[self._current_player]
+        if type(player) == PlayerIA:
+            return player.calculate_next_move(self._board, self._possible_moves)
+        else:
+            return self._player_interface.input_play_move(self._possible_moves, self.players[self._current_player]) # returns tuple with coordinates
 
     def make_move(self):
         """
@@ -169,7 +189,7 @@ class Othello():
         
         # Feed the grid and score into _interface
         #self._player_interface.print_board(grid, self._possible_moves)
-        self._player_interface.print_score(score_black, score_white)
+        self._player_interface.print_score(self.players ,score_black, score_white)
 
 
     def end_game(self):

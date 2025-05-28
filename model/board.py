@@ -3,6 +3,8 @@ from .case import Case
 from .pawn import Pawn
 from .player import Player
 
+
+
 class Board:
     def __init__(self):
         #Initialize an 8x8 grid of Case objects
@@ -173,6 +175,7 @@ class Board:
         self.calculate_score()
 
     def calculate_move(self,row,col,color):
+        "What is this method doing ???"
         pawn_to_turn=[]
         for i in [-1,0,1]:
             for j in [-1,0,1]:
