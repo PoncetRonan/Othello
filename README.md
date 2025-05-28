@@ -1,4 +1,4 @@
-# 🟢⚪ Othello Game Project
+# ⚫️⚪ Othello Game Project
 
 A multiplayer **Othello** board game built in Python 🐍 — playable through the terminal. This project is part of our team collaboration to learn Git and Python OOP.
 
@@ -26,8 +26,7 @@ Othello is a classic strategy board game where two players take turns placing di
 
 ## 🗂️ Project Structure
 
-<pre lang="markdown"> 
-  ```bash 
+<pre lang="markdown">  
   Othello/ 
   ├── engine/ 
   │   ├── __init__.py 
@@ -49,13 +48,13 @@ Othello is a classic strategy board game where two players take turns placing di
   ├── main.py # Game entry point 
   ├── .gitignore # Git ignored files 
   └── README.md # Project documentation 
-  ``` </pre>
+  </pre>
 
 ---
 
 ## 🛠️ Setup
 
-<pre lang="markdown"> 
+<pre lang="markdown">
 git clone https://github.com/your-username/othello.git
 cd othello
 python main.py
@@ -64,8 +63,8 @@ python main.py
 ---
 
 ## 👥 Contributors
-@
-@
-@
-@
+- [@Poncet Ronan](https://github.com/PoncetRonan)
+- [@Diletta Ciardo](https://github.com/DidiCi)
+- [@Jip Wulffelé](https://github.com/JipWulffele)
+- [@Jerome Delaunay](https://github.com/Jerome-Delaunay)
 
