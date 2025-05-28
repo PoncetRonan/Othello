@@ -63,7 +63,7 @@ class Othello():
 
         # Initialize board
         self._board = Board()
-        self._player_interface.print_board(self._board._grid)
+        self._player_interface.print_board(self._board._grid, self._possible_moves)
         
 
     def play_game(self):
@@ -159,6 +159,10 @@ class Othello():
         # Get grid and score from _board
         grid = self._board._grid # To be updated with a proper getter!!!
         score_white, score_black = self._board.score_white, self._board.score_black 
+        
+        # Determine next player an his possible
+
+        
         # Feed the grid and score into _interface
         self._player_interface.print_board(grid, self._possible_moves)
         self._player_interface.print_score(score_black, score_white)
