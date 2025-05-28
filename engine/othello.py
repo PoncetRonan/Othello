@@ -63,7 +63,7 @@ class Othello():
 
         # Initialize board
         self._board = Board()
-        self._player_interface.print_board(self._board._grid, self._possible_moves)
+        self._player_interface.print_board(self._board._grid, [])
         
 
     def play_game(self):
