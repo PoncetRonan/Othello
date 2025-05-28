@@ -18,9 +18,6 @@ class Othello():
         _next_move (tuple): The coordinates of the next move to be made.
         _board (Board): An instance of the game board.
         _player_interface (Display): Interface for displaying messages and input.
-        test_mode (bool): If True, uses predefined moves for testing purposes.
-        i (int): Counter to iterate through test moves in test mode.
-        test_moves (list): Predefined moves for testing the game logic.
 
     Raises:
         ValueError: If an invalid player is provided during initialization.
@@ -63,7 +60,7 @@ class Othello():
 
         # Initialize board
         self._board = Board()
-        self._player_interface.print_board(self._board._grid, [])
+        #self._player_interface.print_board(self._board._grid, [])
         
 
     def play_game(self):
@@ -76,6 +73,7 @@ class Othello():
 
         # Determine next player
         self._current_player = self.determine_next_player()
+        self._player_interface.print_board(self._board.get_grid(), self._possible_moves)
 
         if self.num_blocked_players < 2: # else: game ends
             # Determine the next move
@@ -164,7 +162,7 @@ class Othello():
 
         
         # Feed the grid and score into _interface
-        self._player_interface.print_board(grid, self._possible_moves)
+        #self._player_interface.print_board(grid, self._possible_moves)
         self._player_interface.print_score(score_black, score_white)
 
 
