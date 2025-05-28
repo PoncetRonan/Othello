@@ -4,9 +4,9 @@ import random
 
 class PlayerIA(Player):
     """ player IA that calculate the next move by itself"""
-    def __init__(self, name, color='white'):
+    def __init__(self, name, color='white', mode_play = "random"):
         super().__init__(name, color)
-        self.mode_play = "random"
+        self.mode_play = mode_play
     
     def calculate_next_move(self, board:Board, list_possible_moves):
         """
