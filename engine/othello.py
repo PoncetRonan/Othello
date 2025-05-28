@@ -112,9 +112,6 @@ class Othello():
 
             # Get a list of all possible moves
             self._possible_moves = self._board.verify_possible_move(possible_player) # Returns a list of tuples (row, col)
-            #self._possible_moves = [(1,1)]
-            
-            print(self._possible_moves)
         
             if len(self._possible_moves) > 0: # possible_player can play and becoms the next_player
                 self._num_blocked_players = 0
