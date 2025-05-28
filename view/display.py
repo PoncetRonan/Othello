@@ -126,7 +126,7 @@ class Display():
         return absolute_coord
 
 
-    def print_board(self,board):
+    def print_board(self, board, possible_moves):
         haut = "  ┌" + "───┬" * 7 + "───┐"
         milieu = "  ├" + "───┼" * 7 + "───┤"
         bas = "  └" + "───┴" * 7 + "───┘"
