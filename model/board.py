@@ -64,7 +64,7 @@ class Board:
     def increment_direction(self, move, direction):
         i = move[0]
         j = move[1]
-        if i > 0 and i < 7 and j > 0 and j < 7:
+        if i >= 0 and i < 8 and j >= 0 and j < 8:
             valid = True
             if direction == 'up':
                 i -= 1
@@ -88,6 +88,9 @@ class Board:
                 j += 1
         else:
             valid = False
+
+            # Check that i,j is withi ngrid
+            # else return False
         return valid, (i, j)
     
     def is_valid_move(self, move, direction, color):
