@@ -1,5 +1,6 @@
 import os
 import platform
+from .coordinates import Coordinates
 
 
 class Display():
@@ -103,14 +104,26 @@ class Display():
             name = self.black
 
         print(f"it is the turn of {name}")
-        next_move=input('Enter your next move:')
-        if next_move in list_valid_move:
-            is_valid=True
+        input_msg='Enter your next move: \n'
+
+        is_valid=False
         while is_valid == False:
-            next_move=input('Incorrect move, please enter a valid move:')
-            if next_move in list_valid_move:
-                is_valid=True
-        return next_move
+            next_move=input(input_msg)
+            try:
+                alphan_coordinate=Coordinates(next_move)
+                absolute_coord=(alphan_coordinate.row_index,alphan_coordinate.col_index)
+                if absolute_coord in list_valid_move:
+                    is_valid=True
+                else:
+                    input_msg=("You can't put a pawn there , enter a new move : \n")
+                
+            except:
+                alphan_coordinate=Coordinates(next_move)
+                print((alphan_coordinate.row_index,alphan_coordinate.col_index))
+                input_msg=("Can't recognize this move , enter a new move : \n")
+
+
+        return absolute_coord
 
 
     def print_board(self,board):
@@ -119,11 +132,11 @@ class Display():
         bas = "  └" + "───┴" * 7 + "───┘"
 
         # En-tête colonnes
-        print("    " + "   ".join(str(i+1) for i in range(8)))
+        print("    " + "   ".join(chr(65 + i) for i in range(8)))
         print(haut)
 
         for i, ligne in enumerate(board):
-            ligne_affichée = f"{chr(65 + i)} │"
+            ligne_affichée = f"{str(i+1)} │"
             for case in ligne:
                 try:
                     if case.pawn.color == "white":
