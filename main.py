@@ -10,4 +10,3 @@ while game.continue_game == True:
         game.play_game()
     
     game.end_game()
-

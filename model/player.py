@@ -37,5 +37,5 @@ class Player:
 
 
     def __str__(self):
-        return f"{self.name}<{self.color}>"
+        return f"{self.name} <{self.color}>"
         
