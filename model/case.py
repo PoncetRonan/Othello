@@ -62,4 +62,26 @@ class Case:
                     nc.append(coordinate)
         return nc
     
+    def __str__(self):
+        try:
+            p= self.pawn
+            s=(f"|{str(p)}|")
+        except NoPawnError:
+            s="| |"
+        except:
+            s="XXX"
+        return s
     
+    def __repr__(self):
+        try:
+            p= self.pawn
+            s=(f"|{str(p)}|")
+        except NoPawnError:
+            s="| |"
+        except:
+            s="XXX"
+        return s
+    
+        
+    
+

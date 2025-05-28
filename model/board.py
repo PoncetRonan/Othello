@@ -92,7 +92,7 @@ class Board:
     
     def is_valid_move(self, move, direction, color):
         result = False
-        valid, (i, j) = self.increment_direction(i, j, direction)
+        valid, (i, j) = self.increment_direction(move , direction)
         while ((valid) & (self._grid[i, j].state == 'occupied')):
             if self._grid[i, j].pawn.color == color:
                 result = True
@@ -105,10 +105,11 @@ class Board:
         for i in range(8):
             for j in range(8):
                 if ((self._grid[i, j].state == 'occupied') and (self._grid[i, j].pawn.color != current_player)):
-                    for move in self._grid[i, j].neighbors:
-                        direction = self.define_direction(move, (i,j))
-                        if ((move.state == 'empty') and (self.is_valid_move(move, direction, current_player))):
-                            possible_moves.append(move)
+                    for k,l in self._grid[i, j].neighbors_coordinates():
+                        
+                        direction = self.define_direction((k,l), (i,j))
+                        if ((self._grid[k,l].state == 'empty') and (self.is_valid_move((k,l), direction, current_player))):
+                            possible_moves.append((k,l))
         return list(set(possible_moves))  # Remove duplicates
                 
     def play_pawn(self, row, col, current_player):
@@ -183,3 +184,5 @@ class Board:
         self._score_white = score_white
         self._score_black = score_black
 
+    def __str__(self):
+        return str(self.get_grid())
