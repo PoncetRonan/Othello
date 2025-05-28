@@ -15,6 +15,7 @@ class Board:
         self._grid[3, 4].add_pawn(Pawn('black'))
         self._grid[4, 3].add_pawn(Pawn('black'))
         self._grid[4, 4].add_pawn(Pawn('white'))
+        
         self._score_white = 0
         self._score_black = 0
 
